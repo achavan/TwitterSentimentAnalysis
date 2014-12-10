@@ -1,0 +1,186 @@
+Phase: Classification
+
+Options: control = appelt
+Input:   Lookup VG Mixednegatieve negModalVerb MixedPositieve  Tweet
+Rule: Classification
+Priority: 55
+(
+({Tweet}):twt
+):TW
+-->
+:TW
+{
+
+ AnnotationSet anset = ((AnnotationSet)bindings.get("twt"));
+ Annotation P1Iterator1=anset.iterator().next();
+	float totalScore=0;
+
+	if(!inputAS.get("PossiAdjectieveNP").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "Positeve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "Possitevetweet",
+				features);
+		}
+	else if(!inputAS.get("NegaAdjectieveNP").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{
+			
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "negatieve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "negatievetweet",
+				features);
+		}
+	else if(!inputAS.get("PositieveVerbs").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+	{
+		gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "Positeve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "Possitevetweet",
+				features);
+	
+	}
+	else if(!inputAS.get("Negatieveverbs").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+	{
+		gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "negatieve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "negatievetweet",
+				features);
+	}
+	else 
+	{
+		if(!inputAS.get("modalverbset").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{
+		
+		AnnotationSet modalverbset1 = inputAS.get("modalverbset").getContained(
+                 anset.firstNode().getOffset(),
+                       anset.lastNode().getOffset());
+		
+		for(Annotation a :modalverbset1 )
+		{
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+					 String Score=features.get("Score").toString();
+					 	 totalScore=totalScore+Float.parseFloat(Score);
+					
+		}
+		}	
+		if(!inputAS.get("modalverbpattern").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{
+		
+				AnnotationSet modalverbpattern1 = inputAS.get("modalverbpattern").getContained(
+                 anset.firstNode().getOffset(),
+                       anset.lastNode().getOffset());
+		
+		for(Annotation a :modalverbpattern1 )
+		{
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+					 String Score=features.get("Score").toString();
+					 	 totalScore=totalScore+Float.parseFloat(Score);
+		
+		}
+		
+		}
+			if(!inputAS.get("MixedPositieve").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())	
+		{
+		
+					
+				AnnotationSet MixedPositieve = inputAS.get("MixedPositieve").getContained(
+                 anset.firstNode().getOffset(),
+                       anset.lastNode().getOffset());
+		
+		for(Annotation a :MixedPositieve )
+		{
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+					 String Score=features.get("Score").toString();
+					 	 totalScore=totalScore+Float.parseFloat(Score);
+		
+		}
+		
+		}
+		
+		if(!inputAS.get("Mixednegatieve").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{
+					
+				AnnotationSet Mixednegatieve = inputAS.get("Mixednegatieve").getContained(
+                 anset.firstNode().getOffset(),
+                       anset.lastNode().getOffset());
+		
+		for(Annotation a :Mixednegatieve )
+		{
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+					 String Score=features.get("Score").toString();
+					 	 totalScore=totalScore+Float.parseFloat(Score);
+		
+		}
+			
+		if(!inputAS.get("Remainder").getContained(
+		anset.firstNode().getOffset(),
+		anset.lastNode().getOffset()).isEmpty())
+		{  AnnotationSet Remainder = inputAS.get("Remainder").getContained(
+                 anset.firstNode().getOffset(),
+                       anset.lastNode().getOffset());
+		
+		for(Annotation a :Remainder )
+		{
+				gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+					 String Score=features.get("Score").toString();
+					 	 totalScore=totalScore+Float.parseFloat(Score);
+		}
+		
+		}
+		
+		}
+	       if(totalScore>0)
+		   {
+		   
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "Positeve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "Possitevetweet",
+				features);
+		   
+		   }
+		   else if(totalScore<0)
+		   {
+		  
+		   
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "negatieve");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "negatievetweet",
+				features);
+				
+			
+		   }
+		   else
+		   {
+		   
+			
+			gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "neutral");
+			outputAS.add(anset.firstNode(), anset.lastNode(), "neutraltweettweet",
+				features);
+		   
+		   
+		   }
+	}
+	
+	
+}

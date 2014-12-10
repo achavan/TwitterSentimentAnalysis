@@ -1,0 +1,86 @@
+Phase:	MixedPositieve
+
+Options: control = first
+Input:   Lookup TVSHOW Token
+Rule: MixedPositieve 
+
+Priority: 55
+(
+ ({Lookup.majorType==posi}):pos
+)
+:OU
+
+-->
+:OU
+{
+gate.AnnotationSet pos=(gate.AnnotationSet)bindings.get("pos");
+Annotation P1Iterator=pos.iterator().next();
+
+
+AnnotationSet aanoset=doc.getAnnotations();
+		AnnotationSet blacklist1=aanoset.get("TVSHOW");
+	
+
+		int flag=0;
+		String TV ="";
+		String startnode="";
+		
+for(Annotation annot: pos)
+{		flag=0;
+		try{
+			
+			startnode=doc.getContent().getContent
+									(annot.getStartNode().getOffset(),
+											annot.getEndNode().getOffset()).toString();
+											
+			}
+			catch(InvalidOffsetException ioe)
+			{
+     
+				throw new GateRuntimeException(ioe);
+
+
+			}	
+		for(Annotation annot2: blacklist1)
+		{
+			
+			
+		try{
+			TV= doc.getContent().getContent
+									(annot2.getStartNode().getOffset(),
+											annot2.getEndNode().getOffset()).toString();
+											//System.out.println(TV);
+											
+			}
+		catch(InvalidOffsetException ioe)
+		{
+     
+			throw new GateRuntimeException(ioe);
+
+
+		}
+			if (TV.toLowerCase().contains(startnode.toLowerCase()))
+			{
+				flag=1;
+				
+				
+			}
+			
+		}
+		if(flag==0)
+		{      
+				gate.FeatureMap features= Factory.newFeatureMap();
+				gate.FeatureMap lokupfeature= Factory.newFeatureMap();
+				lokupfeature=annot.getFeatures();
+				String score=lokupfeature.get("minorType").toString();
+				features.put("text", startnode);
+				features.put("Score",score);
+				outputAS.add(annot.getStartNode(), annot.getEndNode(), "MixedPositieve",
+				features);
+		
+		}
+	
+
+
+}
+}

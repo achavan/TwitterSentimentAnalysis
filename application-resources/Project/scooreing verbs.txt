@@ -1,0 +1,36 @@
+Phase: setofmodalverbandnegatieve
+
+Options: control = appelt
+Input:   Lookup VG Mixednegatieve negatievemodalverb
+Rule: setofmodalverbandnegatieve
+
+(
+
+
+
+):
+OU
+{
+
+
+
+AnnotationSet anset = ((AnnotationSet)bindings.get("NP1"));
+ Annotation P1Iterator=anset.iterator().next();
+
+
+  
+
+   //iterate through the matched annotations
+   if(!inputAS.get("PositieveAjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset()).isEmpty())
+   {
+   AnnotationSet commentTokensAs = inputAS.get("PositieveAjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset());
+
+	gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("type", "Positeve");
+	outputAS.add(anset.firstNode(), anset.lastNode(), "PossiAdjectieveNP",
+				features);
+	}

@@ -1,0 +1,13 @@
+Phase:   OrganizationalUnit
+
+Options: control = appelt
+Input:   Lookup Token 
+Rule: OrganizationalUnit1
+
+Priority: 55
+(
+({Lookup.majorType ==organization}):pos
+)
+:OU
+-->
+:OU.test={ type = :OU.Lookup.minorType}

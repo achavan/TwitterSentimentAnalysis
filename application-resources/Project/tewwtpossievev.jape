@@ -1,0 +1,55 @@
+Phase: PossiAdjectieveNP
+
+Options: control = appelt
+Input:   NounChunk  PositieveAjectieve
+Rule: PossiAdjectieveNP 
+
+Priority: 55
+
+
+(
+({NounChunk}):NP
+({PositieveAjectieve}):PA
+)
+:OU
+-->
+:NP.PossiAdjectieveNP={kindd ="done"},:PA.PossiAdjectieveNP={}
+
+Rule: PossiAdjectieveNP 
+Priority: 55
+
+
+(
+ 
+ ({NounChunk}):NP
+)
+:OU
+-->
+:OU
+{
+
+
+
+ AnnotationSet anset = ((AnnotationSet)bindings.get("NP"));
+ Annotation P1Iterator=anset.iterator().next();
+
+
+  
+
+   //iterate through the matched annotations
+   if(!inputAS.get("PositieveAjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset()).isEmpty())
+   {
+   AnnotationSet commentTokensAs = inputAS.get("PositieveAjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset());
+	System.out.println("hello");
+	gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("text", "");
+	outputAS.add(anset.firstNode(), anset.lastNode(), "PossiAdjectieveNP",
+				features);
+	
+	}
+
+}

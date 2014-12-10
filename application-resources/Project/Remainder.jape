@@ -1,0 +1,101 @@
+Phase: Remaindernegatieve
+
+Options: control = appelt
+Input:   Lookup VG Mixednegatieve negModalVerb MixedPositieve Token modalverbset modalverbpattern
+Rule: setofmodalverbandnegatieve
+(
+
+({Mixednegatieve}|{MixedPositieve}):mn
+
+):RE
+-->
+:RE{
+AnnotationSet anset = ((AnnotationSet)bindings.get("mn"));
+ Annotation P1Iterator=anset.iterator().next();
+AnnotationSet aanoset=doc.getAnnotations();
+		AnnotationSet modalverbset=aanoset.get("modalverbset");
+		int flag=0;
+		String startnode="";
+		String temp1="";
+		AnnotationSet modalverbpattern=aanoset.get("modalverbpattern");
+		
+		String temp2="";
+		for(Annotation a :anset)
+		{
+			try{
+			
+			startnode=doc.getContent().getContent
+									(a.getStartNode().getOffset(),
+											a.getEndNode().getOffset()).toString();
+											
+			}
+			catch(InvalidOffsetException ioe)
+			{
+     
+				throw new GateRuntimeException(ioe);
+
+
+			}	
+		
+	        	for(Annotation b :modalverbset)
+                    {	
+						 try{
+			                   temp1= doc.getContent().getContent
+									(b.getStartNode().getOffset(),
+											b.getEndNode().getOffset()).toString();
+											//System.out.println(TV);
+											
+							}
+							catch(InvalidOffsetException ioe)
+							{
+     
+								throw new GateRuntimeException(ioe);
+
+
+							}
+						if (temp1.toLowerCase().contains(startnode.toLowerCase()))
+							{
+								flag=1;
+								System.out.println(temp1);
+				
+				
+							}
+					}				
+		
+				for(Annotation c :modalverbpattern)
+                    {	
+						 try{
+			                   temp2= doc.getContent().getContent
+									(c.getStartNode().getOffset(),
+											c.getEndNode().getOffset()).toString();
+											//System.out.println(TV);
+											
+							}
+							catch(InvalidOffsetException ioe)
+							{
+     
+								throw new GateRuntimeException(ioe);
+
+
+							}
+						if (temp2.toLowerCase().contains(startnode.toLowerCase()))
+							{
+								flag=1;
+								System.out.println("temp2");
+				
+				
+							}
+					}			
+		
+		
+				if(flag==0){
+				gate.FeatureMap features= Factory.newFeatureMap();
+				features =a.getFeatures();
+				outputAS.add(a.getStartNode(), a.getEndNode(), "Remainder",
+				features);
+				}
+		}
+
+
+
+}

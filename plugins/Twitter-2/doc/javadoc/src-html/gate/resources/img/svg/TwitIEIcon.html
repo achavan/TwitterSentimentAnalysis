@@ -1,0 +1,294 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package gate.resources.img.svg;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import java.awt.*;<a name="line.3"></a>
+<FONT color="green">004</FONT>    import java.awt.geom.*;<a name="line.4"></a>
+<FONT color="green">005</FONT>    import java.awt.image.*;<a name="line.5"></a>
+<FONT color="green">006</FONT>    <a name="line.6"></a>
+<FONT color="green">007</FONT>    import java.awt.image.BufferedImage;<a name="line.7"></a>
+<FONT color="green">008</FONT>    import java.io.IOException;<a name="line.8"></a>
+<FONT color="green">009</FONT>    import javax.imageio.ImageIO;<a name="line.9"></a>
+<FONT color="green">010</FONT>    <a name="line.10"></a>
+<FONT color="green">011</FONT>    /**<a name="line.11"></a>
+<FONT color="green">012</FONT>     * This class has been automatically generated using &lt;a<a name="line.12"></a>
+<FONT color="green">013</FONT>     * href="http://englishjavadrinker.blogspot.com/search/label/SVGRoundTrip"&gt;SVGRoundTrip&lt;/a&gt;.<a name="line.13"></a>
+<FONT color="green">014</FONT>     */<a name="line.14"></a>
+<FONT color="green">015</FONT>    @SuppressWarnings("unused")<a name="line.15"></a>
+<FONT color="green">016</FONT>    public class TwitIEIcon implements<a name="line.16"></a>
+<FONT color="green">017</FONT>                    javax.swing.Icon {<a name="line.17"></a>
+<FONT color="green">018</FONT>            /**<a name="line.18"></a>
+<FONT color="green">019</FONT>             * Paints the transcoded SVG image on the specified graphics context. You<a name="line.19"></a>
+<FONT color="green">020</FONT>             * can install a custom transformation on the graphics context to scale the<a name="line.20"></a>
+<FONT color="green">021</FONT>             * image.<a name="line.21"></a>
+<FONT color="green">022</FONT>             * <a name="line.22"></a>
+<FONT color="green">023</FONT>             * @param g<a name="line.23"></a>
+<FONT color="green">024</FONT>             *            Graphics context.<a name="line.24"></a>
+<FONT color="green">025</FONT>             */<a name="line.25"></a>
+<FONT color="green">026</FONT>            public static void paint(Graphics2D g) {<a name="line.26"></a>
+<FONT color="green">027</FONT>            Shape shape = null;<a name="line.27"></a>
+<FONT color="green">028</FONT>            Paint paint = null;<a name="line.28"></a>
+<FONT color="green">029</FONT>            Stroke stroke = null;<a name="line.29"></a>
+<FONT color="green">030</FONT>            Area clip = null;<a name="line.30"></a>
+<FONT color="green">031</FONT>             <a name="line.31"></a>
+<FONT color="green">032</FONT>            float origAlpha = 1.0f;<a name="line.32"></a>
+<FONT color="green">033</FONT>            Composite origComposite = g.getComposite();<a name="line.33"></a>
+<FONT color="green">034</FONT>            if (origComposite instanceof AlphaComposite) {<a name="line.34"></a>
+<FONT color="green">035</FONT>                AlphaComposite origAlphaComposite = <a name="line.35"></a>
+<FONT color="green">036</FONT>                    (AlphaComposite)origComposite;<a name="line.36"></a>
+<FONT color="green">037</FONT>                if (origAlphaComposite.getRule() == AlphaComposite.SRC_OVER) {<a name="line.37"></a>
+<FONT color="green">038</FONT>                    origAlpha = origAlphaComposite.getAlpha();<a name="line.38"></a>
+<FONT color="green">039</FONT>                }<a name="line.39"></a>
+<FONT color="green">040</FONT>            }<a name="line.40"></a>
+<FONT color="green">041</FONT>            <a name="line.41"></a>
+<FONT color="green">042</FONT>                Shape clip_ = g.getClip();<a name="line.42"></a>
+<FONT color="green">043</FONT>    AffineTransform defaultTransform_ = g.getTransform();<a name="line.43"></a>
+<FONT color="green">044</FONT>    //  is CompositeGraphicsNode<a name="line.44"></a>
+<FONT color="green">045</FONT>    float alpha__0 = origAlpha;<a name="line.45"></a>
+<FONT color="green">046</FONT>    origAlpha = origAlpha * 1.0f;<a name="line.46"></a>
+<FONT color="green">047</FONT>    g.setComposite(AlphaComposite.getInstance(3, origAlpha));<a name="line.47"></a>
+<FONT color="green">048</FONT>    Shape clip__0 = g.getClip();<a name="line.48"></a>
+<FONT color="green">049</FONT>    AffineTransform defaultTransform__0 = g.getTransform();<a name="line.49"></a>
+<FONT color="green">050</FONT>    g.transform(new AffineTransform(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f));<a name="line.50"></a>
+<FONT color="green">051</FONT>    clip = new Area(g.getClip());<a name="line.51"></a>
+<FONT color="green">052</FONT>    clip.intersect(new Area(new Rectangle2D.Double(0.0,0.0,2000.0,1625.3599853515625)));<a name="line.52"></a>
+<FONT color="green">053</FONT>    g.setClip(clip);<a name="line.53"></a>
+<FONT color="green">054</FONT>    // _0 is CompositeGraphicsNode<a name="line.54"></a>
+<FONT color="green">055</FONT>    float alpha__0_0 = origAlpha;<a name="line.55"></a>
+<FONT color="green">056</FONT>    origAlpha = origAlpha * 1.0f;<a name="line.56"></a>
+<FONT color="green">057</FONT>    g.setComposite(AlphaComposite.getInstance(3, origAlpha));<a name="line.57"></a>
+<FONT color="green">058</FONT>    Shape clip__0_0 = g.getClip();<a name="line.58"></a>
+<FONT color="green">059</FONT>    AffineTransform defaultTransform__0_0 = g.getTransform();<a name="line.59"></a>
+<FONT color="green">060</FONT>    g.transform(new AffineTransform(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f));<a name="line.60"></a>
+<FONT color="green">061</FONT>    // _0_0 is ShapeNode<a name="line.61"></a>
+<FONT color="green">062</FONT>    paint = new Color(0, 172, 237, 255);<a name="line.62"></a>
+<FONT color="green">063</FONT>    shape = new GeneralPath();<a name="line.63"></a>
+<FONT color="green">064</FONT>    ((GeneralPath)shape).moveTo(1999.9999, 192.4);<a name="line.64"></a>
+<FONT color="green">065</FONT>    ((GeneralPath)shape).curveTo(1926.4199, 225.04, 1847.3298, 247.09, 1764.3398, 257.01);<a name="line.65"></a>
+<FONT color="green">066</FONT>    ((GeneralPath)shape).curveTo(1849.0398, 206.23001, 1914.1099, 125.82001, 1944.7499, 30.000015);<a name="line.66"></a>
+<FONT color="green">067</FONT>    ((GeneralPath)shape).curveTo(1865.4598, 77.030014, 1777.6499, 111.17001, 1684.1799, 129.57);<a name="line.67"></a>
+<FONT color="green">068</FONT>    ((GeneralPath)shape).curveTo(1609.3398, 49.82, 1502.7, 0.0, 1384.6799, 0.0);<a name="line.68"></a>
+<FONT color="green">069</FONT>    ((GeneralPath)shape).curveTo(1158.08, 0.0, 974.3519, 183.71, 974.3519, 410.31);<a name="line.69"></a>
+<FONT color="green">070</FONT>    ((GeneralPath)shape).curveTo(974.3519, 442.47, 977.9799, 473.79, 984.9769, 503.82);<a name="line.70"></a>
+<FONT color="green">071</FONT>    ((GeneralPath)shape).curveTo(643.96094, 486.71002, 341.60895, 323.35, 139.23792, 75.100006);<a name="line.71"></a>
+<FONT color="green">072</FONT>    ((GeneralPath)shape).curveTo(103.91391, 135.70001, 83.67961, 206.19, 83.67961, 281.39);<a name="line.72"></a>
+<FONT color="green">073</FONT>    ((GeneralPath)shape).curveTo(83.67961, 423.75, 156.11691, 549.34, 266.2229, 622.92004);<a name="line.73"></a>
+<FONT color="green">074</FONT>    ((GeneralPath)shape).curveTo(198.9609, 620.79004, 135.6879, 602.33, 80.371, 571.60004);<a name="line.74"></a>
+<FONT color="green">075</FONT>    ((GeneralPath)shape).curveTo(80.332, 573.31006, 80.332, 575.02, 80.332, 576.76);<a name="line.75"></a>
+<FONT color="green">076</FONT>    ((GeneralPath)shape).curveTo(80.332, 775.563, 221.773, 941.395, 409.477, 979.10205);<a name="line.76"></a>
+<FONT color="green">077</FONT>    ((GeneralPath)shape).curveTo(375.051, 988.47705, 338.801, 993.4971, 301.379, 993.4971);<a name="line.77"></a>
+<FONT color="green">078</FONT>    ((GeneralPath)shape).curveTo(274.938, 993.4971, 249.234, 990.91907, 224.176, 986.13306);<a name="line.78"></a>
+<FONT color="green">079</FONT>    ((GeneralPath)shape).curveTo(276.391, 1149.1411, 427.926, 1267.782, 607.48, 1271.0791);<a name="line.79"></a>
+<FONT color="green">080</FONT>    ((GeneralPath)shape).curveTo(467.05096, 1381.1411, 290.12897, 1446.7391, 97.88278, 1446.7391);<a name="line.80"></a>
+<FONT color="green">081</FONT>    ((GeneralPath)shape).curveTo(64.76168, 1446.7391, 32.09768, 1444.7902, -1.5258789E-5, 1441.0011);<a name="line.81"></a>
+<FONT color="green">082</FONT>    ((GeneralPath)shape).curveTo(181.58598, 1557.4187, 397.26996, 1625.3601, 628.988, 1625.3601);<a name="line.82"></a>
+<FONT color="green">083</FONT>    ((GeneralPath)shape).curveTo(1383.72, 1625.3601, 1796.45, 1000.12213, 1796.45, 457.89014);<a name="line.83"></a>
+<FONT color="green">084</FONT>    ((GeneralPath)shape).curveTo(1796.45, 440.10013, 1796.0399, 422.41013, 1795.25, 404.81012);<a name="line.84"></a>
+<FONT color="green">085</FONT>    ((GeneralPath)shape).curveTo(1875.4299, 346.95013, 1944.9899, 274.69012, 1999.9999, 192.40012);<a name="line.85"></a>
+<FONT color="green">086</FONT>    g.setPaint(paint);<a name="line.86"></a>
+<FONT color="green">087</FONT>    g.fill(shape);<a name="line.87"></a>
+<FONT color="green">088</FONT>    origAlpha = alpha__0_0;<a name="line.88"></a>
+<FONT color="green">089</FONT>    g.setTransform(defaultTransform__0_0);<a name="line.89"></a>
+<FONT color="green">090</FONT>    g.setClip(clip__0_0);<a name="line.90"></a>
+<FONT color="green">091</FONT>    origAlpha = alpha__0;<a name="line.91"></a>
+<FONT color="green">092</FONT>    g.setTransform(defaultTransform__0);<a name="line.92"></a>
+<FONT color="green">093</FONT>    g.setClip(clip__0);<a name="line.93"></a>
+<FONT color="green">094</FONT>    g.setTransform(defaultTransform_);<a name="line.94"></a>
+<FONT color="green">095</FONT>    g.setClip(clip_);<a name="line.95"></a>
+<FONT color="green">096</FONT>    <a name="line.96"></a>
+<FONT color="green">097</FONT>            }<a name="line.97"></a>
+<FONT color="green">098</FONT>            <a name="line.98"></a>
+<FONT color="green">099</FONT>            public Image getImage() {<a name="line.99"></a>
+<FONT color="green">100</FONT>                    BufferedImage image =<a name="line.100"></a>
+<FONT color="green">101</FONT>                new BufferedImage(getIconWidth(), getIconHeight(),<a name="line.101"></a>
+<FONT color="green">102</FONT>                        BufferedImage.TYPE_INT_ARGB);<a name="line.102"></a>
+<FONT color="green">103</FONT>            Graphics2D g = image.createGraphics();<a name="line.103"></a>
+<FONT color="green">104</FONT>            paintIcon(null, g, 0, 0);<a name="line.104"></a>
+<FONT color="green">105</FONT>            g.dispose();<a name="line.105"></a>
+<FONT color="green">106</FONT>            return image;<a name="line.106"></a>
+<FONT color="green">107</FONT>            }<a name="line.107"></a>
+<FONT color="green">108</FONT>    <a name="line.108"></a>
+<FONT color="green">109</FONT>        /**<a name="line.109"></a>
+<FONT color="green">110</FONT>         * Returns the X of the bounding box of the original SVG image.<a name="line.110"></a>
+<FONT color="green">111</FONT>         * <a name="line.111"></a>
+<FONT color="green">112</FONT>         * @return The X of the bounding box of the original SVG image.<a name="line.112"></a>
+<FONT color="green">113</FONT>         */<a name="line.113"></a>
+<FONT color="green">114</FONT>        public static int getOrigX() {<a name="line.114"></a>
+<FONT color="green">115</FONT>            return 0;<a name="line.115"></a>
+<FONT color="green">116</FONT>        }<a name="line.116"></a>
+<FONT color="green">117</FONT>    <a name="line.117"></a>
+<FONT color="green">118</FONT>        /**<a name="line.118"></a>
+<FONT color="green">119</FONT>         * Returns the Y of the bounding box of the original SVG image.<a name="line.119"></a>
+<FONT color="green">120</FONT>         * <a name="line.120"></a>
+<FONT color="green">121</FONT>         * @return The Y of the bounding box of the original SVG image.<a name="line.121"></a>
+<FONT color="green">122</FONT>         */<a name="line.122"></a>
+<FONT color="green">123</FONT>        public static int getOrigY() {<a name="line.123"></a>
+<FONT color="green">124</FONT>            return 0;<a name="line.124"></a>
+<FONT color="green">125</FONT>        }<a name="line.125"></a>
+<FONT color="green">126</FONT>    <a name="line.126"></a>
+<FONT color="green">127</FONT>            /**<a name="line.127"></a>
+<FONT color="green">128</FONT>             * Returns the width of the bounding box of the original SVG image.<a name="line.128"></a>
+<FONT color="green">129</FONT>             * <a name="line.129"></a>
+<FONT color="green">130</FONT>             * @return The width of the bounding box of the original SVG image.<a name="line.130"></a>
+<FONT color="green">131</FONT>             */<a name="line.131"></a>
+<FONT color="green">132</FONT>            public static int getOrigWidth() {<a name="line.132"></a>
+<FONT color="green">133</FONT>                    return 2000;<a name="line.133"></a>
+<FONT color="green">134</FONT>            }<a name="line.134"></a>
+<FONT color="green">135</FONT>    <a name="line.135"></a>
+<FONT color="green">136</FONT>            /**<a name="line.136"></a>
+<FONT color="green">137</FONT>             * Returns the height of the bounding box of the original SVG image.<a name="line.137"></a>
+<FONT color="green">138</FONT>             * <a name="line.138"></a>
+<FONT color="green">139</FONT>             * @return The height of the bounding box of the original SVG image.<a name="line.139"></a>
+<FONT color="green">140</FONT>             */<a name="line.140"></a>
+<FONT color="green">141</FONT>            public static int getOrigHeight() {<a name="line.141"></a>
+<FONT color="green">142</FONT>                    return 1625;<a name="line.142"></a>
+<FONT color="green">143</FONT>            }<a name="line.143"></a>
+<FONT color="green">144</FONT>    <a name="line.144"></a>
+<FONT color="green">145</FONT>            /**<a name="line.145"></a>
+<FONT color="green">146</FONT>             * The current width of this resizable icon.<a name="line.146"></a>
+<FONT color="green">147</FONT>             */<a name="line.147"></a>
+<FONT color="green">148</FONT>            int width;<a name="line.148"></a>
+<FONT color="green">149</FONT>    <a name="line.149"></a>
+<FONT color="green">150</FONT>            /**<a name="line.150"></a>
+<FONT color="green">151</FONT>             * The current height of this resizable icon.<a name="line.151"></a>
+<FONT color="green">152</FONT>             */<a name="line.152"></a>
+<FONT color="green">153</FONT>            int height;<a name="line.153"></a>
+<FONT color="green">154</FONT>    <a name="line.154"></a>
+<FONT color="green">155</FONT>            /**<a name="line.155"></a>
+<FONT color="green">156</FONT>             * Creates a new transcoded SVG image.<a name="line.156"></a>
+<FONT color="green">157</FONT>             */<a name="line.157"></a>
+<FONT color="green">158</FONT>            public TwitIEIcon() {<a name="line.158"></a>
+<FONT color="green">159</FONT>            this.width = getOrigWidth();<a name="line.159"></a>
+<FONT color="green">160</FONT>            this.height = getOrigHeight();<a name="line.160"></a>
+<FONT color="green">161</FONT>            }<a name="line.161"></a>
+<FONT color="green">162</FONT>            <a name="line.162"></a>
+<FONT color="green">163</FONT>            /**<a name="line.163"></a>
+<FONT color="green">164</FONT>             * Creates a new transcoded SVG image with the given dimensions.<a name="line.164"></a>
+<FONT color="green">165</FONT>             *<a name="line.165"></a>
+<FONT color="green">166</FONT>             * @param size the dimensions of the icon<a name="line.166"></a>
+<FONT color="green">167</FONT>             */<a name="line.167"></a>
+<FONT color="green">168</FONT>            public TwitIEIcon(Dimension size) {<a name="line.168"></a>
+<FONT color="green">169</FONT>            this.width = size.width;<a name="line.169"></a>
+<FONT color="green">170</FONT>            this.height = size.width;<a name="line.170"></a>
+<FONT color="green">171</FONT>            }<a name="line.171"></a>
+<FONT color="green">172</FONT>    <a name="line.172"></a>
+<FONT color="green">173</FONT>            public TwitIEIcon(int width, int height) {<a name="line.173"></a>
+<FONT color="green">174</FONT>            this.width = width;<a name="line.174"></a>
+<FONT color="green">175</FONT>            this.height = height;<a name="line.175"></a>
+<FONT color="green">176</FONT>            }<a name="line.176"></a>
+<FONT color="green">177</FONT>    <a name="line.177"></a>
+<FONT color="green">178</FONT>            /*<a name="line.178"></a>
+<FONT color="green">179</FONT>             * (non-Javadoc)<a name="line.179"></a>
+<FONT color="green">180</FONT>             * <a name="line.180"></a>
+<FONT color="green">181</FONT>             * @see javax.swing.Icon#getIconHeight()<a name="line.181"></a>
+<FONT color="green">182</FONT>             */<a name="line.182"></a>
+<FONT color="green">183</FONT>        @Override<a name="line.183"></a>
+<FONT color="green">184</FONT>            public int getIconHeight() {<a name="line.184"></a>
+<FONT color="green">185</FONT>                    return height;<a name="line.185"></a>
+<FONT color="green">186</FONT>            }<a name="line.186"></a>
+<FONT color="green">187</FONT>    <a name="line.187"></a>
+<FONT color="green">188</FONT>            /*<a name="line.188"></a>
+<FONT color="green">189</FONT>             * (non-Javadoc)<a name="line.189"></a>
+<FONT color="green">190</FONT>             * <a name="line.190"></a>
+<FONT color="green">191</FONT>             * @see javax.swing.Icon#getIconWidth()<a name="line.191"></a>
+<FONT color="green">192</FONT>             */<a name="line.192"></a>
+<FONT color="green">193</FONT>        @Override<a name="line.193"></a>
+<FONT color="green">194</FONT>            public int getIconWidth() {<a name="line.194"></a>
+<FONT color="green">195</FONT>                    return width;<a name="line.195"></a>
+<FONT color="green">196</FONT>            }<a name="line.196"></a>
+<FONT color="green">197</FONT>    <a name="line.197"></a>
+<FONT color="green">198</FONT>            public void setDimension(Dimension newDimension) {<a name="line.198"></a>
+<FONT color="green">199</FONT>                    this.width = newDimension.width;<a name="line.199"></a>
+<FONT color="green">200</FONT>                    this.height = newDimension.height;<a name="line.200"></a>
+<FONT color="green">201</FONT>            }<a name="line.201"></a>
+<FONT color="green">202</FONT>    <a name="line.202"></a>
+<FONT color="green">203</FONT>            /*<a name="line.203"></a>
+<FONT color="green">204</FONT>             * (non-Javadoc)<a name="line.204"></a>
+<FONT color="green">205</FONT>             * <a name="line.205"></a>
+<FONT color="green">206</FONT>             * @see javax.swing.Icon#paintIcon(java.awt.Component, java.awt.Graphics,<a name="line.206"></a>
+<FONT color="green">207</FONT>             * int, int)<a name="line.207"></a>
+<FONT color="green">208</FONT>             */<a name="line.208"></a>
+<FONT color="green">209</FONT>        @Override<a name="line.209"></a>
+<FONT color="green">210</FONT>            public void paintIcon(Component c, Graphics g, int x, int y) {<a name="line.210"></a>
+<FONT color="green">211</FONT>                    Graphics2D g2d = (Graphics2D) g.create();<a name="line.211"></a>
+<FONT color="green">212</FONT>                    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,<a name="line.212"></a>
+<FONT color="green">213</FONT>                                    RenderingHints.VALUE_ANTIALIAS_ON);<a name="line.213"></a>
+<FONT color="green">214</FONT>                    g2d.translate(x, y);<a name="line.214"></a>
+<FONT color="green">215</FONT>                                                    <a name="line.215"></a>
+<FONT color="green">216</FONT>                    Area clip = new Area(new Rectangle(0, 0, this.width, this.height));             <a name="line.216"></a>
+<FONT color="green">217</FONT>                    if (g2d.getClip() != null) clip.intersect(new Area(g2d.getClip()));             <a name="line.217"></a>
+<FONT color="green">218</FONT>                    g2d.setClip(clip);<a name="line.218"></a>
+<FONT color="green">219</FONT>    <a name="line.219"></a>
+<FONT color="green">220</FONT>                    double coef1 = (double) this.width / (double) getOrigWidth();<a name="line.220"></a>
+<FONT color="green">221</FONT>                    double coef2 = (double) this.height / (double) getOrigHeight();<a name="line.221"></a>
+<FONT color="green">222</FONT>                    double coef = Math.min(coef1, coef2);<a name="line.222"></a>
+<FONT color="green">223</FONT>                    g2d.scale(coef, coef);<a name="line.223"></a>
+<FONT color="green">224</FONT>                    paint(g2d);<a name="line.224"></a>
+<FONT color="green">225</FONT>                    g2d.dispose();<a name="line.225"></a>
+<FONT color="green">226</FONT>            }<a name="line.226"></a>
+<FONT color="green">227</FONT>    }<a name="line.227"></a>
+<FONT color="green">228</FONT>    <a name="line.228"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

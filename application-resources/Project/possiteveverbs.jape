@@ -1,0 +1,17 @@
+Phase:   Possitievveverbs
+
+Options: control = appelt
+Input:   Lookup VG MixedPositieve Token negModalVerb
+Rule: OrganizationalUnit1
+
+Priority: 55
+(
+{!negModalVerb}
+({Token})[0,5]
+{!Lookup.majorType==modi}
+({Token})[0,5]
+({VG,VG.neg!=yes,MixedPositieve}):verbs
+)
+:OU
+-->
+:verbs.PositieveVerbs={type ="posi"}

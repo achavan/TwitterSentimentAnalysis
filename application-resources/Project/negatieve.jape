@@ -1,0 +1,83 @@
+Phase:	negatieve
+
+Options: control = first
+Input:   Lookup TVSHOW Token
+Rule: negatieve 
+
+Priority: 55
+(
+ ({Lookup.majorType ==neg,Token.category==JJ}):neg
+
+
+
+ )
+:OU
+
+-->
+:OU
+{
+gate.AnnotationSet nega=(gate.AnnotationSet)bindings.get("neg");
+Annotation P1Iterator=nega.iterator().next();
+
+
+AnnotationSet aanoset=doc.getAnnotations();
+		AnnotationSet blacklist1=aanoset.get("TVSHOW");
+		int flag=0;
+		String TV ="";
+		String startnode="";
+		
+for(Annotation annot: nega)
+{		flag=0;
+		try{
+			
+			startnode=doc.getContent().getContent
+									(annot.getStartNode().getOffset(),
+											annot.getEndNode().getOffset()).toString();
+											
+			}
+			catch(InvalidOffsetException ioe)
+			{
+     
+				throw new GateRuntimeException(ioe);
+
+
+			}	
+		for(Annotation annot2: blacklist1)
+		{
+			
+			
+		try{
+			TV= doc.getContent().getContent
+									(annot2.getStartNode().getOffset(),
+											annot2.getEndNode().getOffset()).toString();
+											//System.out.println(TV);
+											
+			}
+		catch(InvalidOffsetException ioe)
+		{
+     
+			throw new GateRuntimeException(ioe);
+
+
+		}
+			if (TV.toLowerCase().contains(startnode.toLowerCase()))
+			{
+				flag=1;
+				
+				
+			}
+			
+		}
+		if(flag==0)
+		{        System.out.println(TV);
+				gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("text", startnode);
+				outputAS.add(annot.getStartNode(), annot.getEndNode(), "NegatieveAdjectieve",
+				features);
+		
+		}
+	
+
+
+}
+}

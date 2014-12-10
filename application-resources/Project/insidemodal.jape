@@ -1,0 +1,66 @@
+Phase: setofmodalverbandnegatieve
+
+Options: control = appelt
+Input:   Lookup VG Mixednegatieve negModalVerb MixedPositieve Token
+Rule: NegAdjectieveNP1
+Priority: 55
+
+
+(
+ 
+ ({negModalVerb,!TVSHOW}):nmv
+)
+:OU
+-->
+:OU
+{
+
+
+
+ AnnotationSet anset = ((AnnotationSet)bindings.get("nmv"));
+ Annotation P1Iterator=anset.iterator().next();
+
+
+  
+
+   //iterate through the matched annotations
+   if(!inputAS.get("Mixednegatieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset()).isEmpty())
+   {
+   AnnotationSet commentTokensAs = inputAS.get("Mixednegatieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset());
+	gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("Score", "1");
+	outputAS.add(anset.firstNode(), anset.lastNode(), "modalverbset",
+				features);
+	}
+
+},:OU
+{
+
+
+
+
+ AnnotationSet anset = ((AnnotationSet)bindings.get("nmv"));
+ Annotation P1Iterator=anset.iterator().next();
+
+
+  
+
+   //iterate through the matched annotations
+   if(!inputAS.get("MixedPositieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset()).isEmpty())
+   {
+   AnnotationSet commentTokensAs = inputAS.get("MixedPositieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset());
+	gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("Score", "-1");
+	outputAS.add(anset.firstNode(), anset.lastNode(), "modalverbset",
+				features);
+	}
+
+}

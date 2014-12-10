@@ -1,0 +1,31 @@
+Phase: setofmodalverbandnegatieve
+
+Options: control = appelt
+Input:   Lookup VG Mixednegatieve negModalVerb MixedPositieve Token modalverbset
+Rule: setofmodalverbandnegatieve
+
+
+(
+(({Mixednegatieve})
+({Token})[0,5]
+{negModalVerb,!modalverbset}
+):nega
+|(
+{negModalVerb,!modalverbset}
+({Token})[0,5]
+({Mixednegatieve})):nega2
+
+|({negModalVerb}
+({Token})[0,5]
+({MixedPositieve})):pos1
+|(({MixedPositieve})
+({Token})[0,5]
+{negModalVerb}
+
+):pos2
+
+
+
+):OU
+-->
+:nega.modalverbpattern={Score="1"},:nega2.modalverbpattern={Score="1"},:pos1.modalverbpattern={Score="-1"},:pos2.modalverbpattern={Score="-1"}

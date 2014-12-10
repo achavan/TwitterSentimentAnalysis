@@ -1,0 +1,23 @@
+Phase:   negatievemodalverb
+
+Options: control = appelt
+Input:   Lookup VG 
+Rule: negatievemodalverb
+
+Priority: 55
+(
+({VG,VG.neg==yes}):verbs
+)
+:OU
+-->
+:OU.negatievemodalverb={type ="neg1"}
+
+Rule: negatievemodalverb
+
+Priority: 55
+(
+({Lookup.majorType==modi,!negatievemodalverb}):verbs2
+)
+:OU
+-->
+:verbs2.negatievemodalverb={type ="neg"}

@@ -1,0 +1,17 @@
+Phase:	TVshow
+
+Options: control = appelt
+Input:   Lookup
+Rule: TVshow
+
+Priority: 55
+(
+ ({Lookup.majorType ==tv})
+
+
+
+ )
+:OU
+
+-->
+:OU.TVSHOW={kind="OU",Text=:OU@string}

@@ -1,0 +1,57 @@
+Phase: NegaAdjectieveNP
+Options: control = appelt
+Input:   NounChunk  PositieveAjectieve NegatieveAdjectieve TVSHOW
+
+
+
+Rule: NegAdjectieveNP 
+
+Priority: 55
+
+
+(
+({NounChunk,!TVSHOW}):neg
+({NegatieveAdjectieve}):PA
+)
+:OU
+-->
+:OU.NegaAdjectieveNP={kindd =:OU@string}
+
+
+Rule: NegAdjectieveNP1
+Priority: 55
+
+
+(
+ 
+ ({NounChunk,!TVSHOW}):NP
+)
+:OU
+-->
+:OU
+{
+
+
+
+ AnnotationSet anset = ((AnnotationSet)bindings.get("NP"));
+ Annotation P1Iterator=anset.iterator().next();
+
+
+  
+
+   //iterate through the matched annotations
+   if(!inputAS.get("NegatieveAdjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset()).isEmpty())
+   {
+   AnnotationSet commentTokensAs = inputAS.get("NegatieveAdjectieve").getContained(
+    anset.firstNode().getOffset(),
+    anset.lastNode().getOffset());
+	System.out.println("hello");
+	gate.FeatureMap features= Factory.newFeatureMap();
+				features.put("text", "negatieve");
+	outputAS.add(anset.firstNode(), anset.lastNode(), "NegaAdjectieveNP",
+				features);
+	}
+
+}

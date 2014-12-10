@@ -1,0 +1,13 @@
+Phase:   Negatieveverbs
+
+Options: control = appelt
+Input:   Lookup VG MixedPositieve
+Rule: OrganizationalUnit1
+
+Priority: 55
+(
+({VG,VG.neg!=yes,MixedPositieve}):verbs
+)
+:OU
+-->
+:OU.test={type ="neg"}
